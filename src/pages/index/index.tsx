@@ -1,3 +1,4 @@
+import { View, Swiper, SwiperItem } from "@tarojs/components";
 import React from "react";
 import { View, Text, ScrollView, Navigator } from "@tarojs/components";
 import Taro from "@tarojs/taro";
@@ -6,8 +7,6 @@ import "./index.scss";
 const Index = () => {
   return (
     <View className="container">
-
-
       <View className="weather-card">
         <View className="weather-info">
           <Text className="weather-city">上海市</Text>
@@ -86,8 +85,6 @@ const Index = () => {
           <Text className="scene-name">离家模式</Text>
         </View>
       </ScrollView>
-
-
     </View>
   );
 };
