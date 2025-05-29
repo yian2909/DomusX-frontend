@@ -6,9 +6,10 @@ export default defineAppConfig({
     "pages/my/index",
     "pages/login/index",
     "pages/userInfo/index",
-    "pages/information/index",
-    "pages/addDevice/index",
-    "pages/editDevice/index",
+    "pages/light/index",
+    "pages/plant/index",
+    "pages/door/index",
+    "pages/pet/index",
   ],
   window: {
     backgroundTextStyle: "light",
@@ -29,7 +30,7 @@ export default defineAppConfig({
         selectedIconPath: "static/tabs/home_selected.png",
       },
       {
-        text: "设备",
+        text: "资讯",
         pagePath: "pages/device/index",
         iconPath: "static/tabs/device_default.png",
         selectedIconPath: "static/tabs/device_selected.png",

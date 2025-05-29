@@ -1,3 +1,3 @@
 export default definePageConfig({
-    navigationBarTitleText: "设备管理中心",
+  navigationBarTitleText: "社区资讯",
 });

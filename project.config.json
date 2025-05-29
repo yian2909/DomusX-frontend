@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "DomusX",
   "description": "DomusX",
-  "appid": "wx0609238749a801df",
+  "appid": "touristappid",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -10,19 +10,6 @@
     "compileHotReLoad": false,
     "postcss": false,
     "minified": false,
-    "compileWorklet": false,
-    "uglifyFileName": false,
-    "uploadWithSourceMap": true,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "minifyWXML": true,
-    "localPlugins": false,
-    "disableUseStrict": false,
-    "useCompilerPlugins": false,
-    "condition": false,
-    "swc": false,
-    "disableSWC": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -30,10 +17,15 @@
     }
   },
   "compileType": "miniprogram",
-  "simulatorPluginLibVersion": {},
+  "libVersion": "3.8.3",
+  "srcMiniprogramRoot": "dist/",
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "editorSetting": {}
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
 }
