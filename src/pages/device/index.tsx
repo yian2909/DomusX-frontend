@@ -1,10 +1,11 @@
-import React from "react";
-import { View } from "@tarojs/components";
+import React from 'react'
 
-import "./index.scss";
+const index = () => {
+  return (
+    <div>
 
-const Device = () => {
-    return <View className="device">Device</View>;
-};
+    </div>
+  )
+}
 
-export default Device;
+export default index
