@@ -1,3 +1,3 @@
 export default definePageConfig({
-    navigationBarTitleText: "Device",
+    navigationBarTitleText: "设备管理中心",
 });

@@ -6,6 +6,9 @@ export default defineAppConfig({
     "pages/my/index",
     "pages/login/index",
     "pages/userInfo/index",
+    "pages/information/index",
+    "pages/addDevice/index",
+    "pages/editDevice/index",
   ],
   window: {
     backgroundTextStyle: "light",

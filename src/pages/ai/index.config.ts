@@ -1,3 +1,3 @@
 export default definePageConfig({
-    navigationBarTitleText: "Ai",
+    navigationBarTitleText: "智能助手",
 });
