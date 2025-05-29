@@ -1,7 +1,33 @@
 page {
   background: #f5f5f5;
- }
+}
 
 .index {
   padding: 20rpx;
- }
+}
+
+.weather {
+  background-color: #4990e2;
+  color: white;
+  border-radius: 20px;
+  width: 95%;
+  height: 100px;
+  margin: auto;
+}
+
+.all {
+  color: #4990e2;
+  font-weight: 750;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.font {
+  font-weight: 800;
+}
