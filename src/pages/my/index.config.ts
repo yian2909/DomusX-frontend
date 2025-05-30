@@ -1,4 +1,4 @@
 export default definePageConfig({
-  navigationBarTitleText: '我的',
+  navigationBarTitleText: "个人中心",
   enablePullDownRefresh: true,
-})
+});
