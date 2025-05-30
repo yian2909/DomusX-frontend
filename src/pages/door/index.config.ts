@@ -1,3 +1,3 @@
 export default definePageConfig({
-    navigationBarTitleText: "Door",
+    navigationBarTitleText: "智能门锁",
 });
