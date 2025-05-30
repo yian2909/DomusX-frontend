@@ -65,50 +65,41 @@ page {
 }
 
 .input-area {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), #ffffff);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
   padding: 20rpx 30rpx;
   display: flex;
   align-items: center;
-  position: relative;
-  margin-top: auto;
-  border-top: 2rpx solid rgba(0, 0, 0, 0.05);
+  gap: 20rpx;
+  border-top: 2rpx solid #f5f5f5;
 }
 
 .input-field {
   flex: 1;
-  padding: 24rpx 30rpx;
+  height: 80rpx;
   background: #f8f9fa;
-  border: none;
   border-radius: 40rpx;
+  padding: 0 30rpx;
   font-size: 28rpx;
-  margin-right: 20rpx;
-  box-shadow: inset 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-
-  &:focus {
-    background: #ffffff;
-    box-shadow:
-      0 0 0 2rpx rgba(74, 144, 226, 0.2),
-      inset 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
-  }
+  color: #333;
 }
 
-.voice-btn,
 .send-btn {
   width: 80rpx;
   height: 80rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4a90e2;
-  font-size: 40rpx;
   background: #f8f9fa;
   border-radius: 50%;
   transition: all 0.3s ease;
 
   &:active {
-    background: #e9ecef;
     transform: scale(0.95);
+    opacity: 0.8;
   }
 }
 

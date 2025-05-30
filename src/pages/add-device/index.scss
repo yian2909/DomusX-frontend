@@ -1,0 +1,149 @@
+page {
+  background-color: #fff;
+  color: #333;
+}
+
+.container {
+  padding-bottom: 120rpx;
+}
+
+.header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 12rpx rgba(74, 144, 226, 0.2);
+}
+
+.back-btn {
+  position: absolute;
+  left: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding: 30rpx;
+}
+
+.scan-section {
+  margin-bottom: 40rpx;
+}
+
+.scan-title {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  display: block;
+  font-weight: bold;
+}
+
+.scan-box {
+  background: #f8f9fa;
+  border: 4rpx dashed #4a90e2;
+  border-radius: 40rpx;
+  padding: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400rpx;
+}
+
+.scan-icon {
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .at-icon {
+    font-size: 96rpx;
+  }
+}
+
+.scan-text {
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+  width: 100%;
+}
+
+.form-section {
+  background: #fff;
+  border-radius: 40rpx;
+}
+
+.form-group {
+  margin-bottom: 40rpx;
+}
+
+.form-label {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  display: block;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  background: #f8f9fa;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.icon-select {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30rpx;
+}
+
+.icon-option {
+  width: 120rpx;
+  height: 120rpx;
+  background: #f8f9fa;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  .at-icon {
+    font-size: 48rpx;
+  }
+
+  &.selected {
+    background: #4a90e2;
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60rpx;
+  transition: all 0.3s ease;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}

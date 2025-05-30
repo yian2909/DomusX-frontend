@@ -20,7 +20,9 @@ const Index = () => {
 
       <View className="section-title">
         <Text>我的设备</Text>
-        <Text className="section-link">查看全部</Text>
+        <Navigator url="/pages/all-device/index" className="section-link">
+          <Text>查看全部</Text>
+        </Navigator>
       </View>
 
       <View className="device-grid">

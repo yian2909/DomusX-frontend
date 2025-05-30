@@ -10,6 +10,8 @@ export default defineAppConfig({
     "pages/plant/index",
     "pages/door/index",
     "pages/pet/index",
+    "pages/all-device/index",
+    "pages/add-device/index",
   ],
   window: {
     backgroundTextStyle: "light",

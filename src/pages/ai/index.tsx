@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Input, ScrollView } from "@tarojs/components";
 import Taro from "@tarojs/taro";
+import { AtIcon } from "taro-ui";
 import "./index.scss";
 
 interface Message {
@@ -74,11 +75,8 @@ const Ai = () => {
           confirmType="send"
           onConfirm={handleSend}
         />
-        <View className="voice-btn">
-          <Text className="icon">🎤</Text>
-        </View>
         <View className="send-btn" onClick={handleSend}>
-          <Text className="icon">➤</Text>
+          <AtIcon value="edit" size="24" color="#4a90e2" />
         </View>
       </View>
     </View>
