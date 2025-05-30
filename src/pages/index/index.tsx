@@ -6,8 +6,6 @@ import "./index.scss";
 const Index = () => {
   return (
     <View className="container">
-
-
       <View className="weather-card">
         <View className="weather-info">
           <Text className="weather-city">上海市</Text>
@@ -86,8 +84,6 @@ const Index = () => {
           <Text className="scene-name">离家模式</Text>
         </View>
       </ScrollView>
-
-
     </View>
   );
 };
