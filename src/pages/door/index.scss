@@ -1,0 +1,157 @@
+page {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  padding: 30rpx;
+  padding-bottom: 140rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.back-button {
+  font-size: 48rpx;
+  margin-right: 30rpx;
+  padding: 10rpx;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.device-banner {
+  background-color: #4169e1;
+  color: white;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.device-title {
+  font-size: 44rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.device-desc {
+  font-size: 32rpx;
+  opacity: 0.8;
+  display: block;
+}
+
+.device-icon {
+  font-size: 80rpx;
+}
+
+.control-card {
+  background-color: white;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.toggle-switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.toggle-label {
+  font-size: 32rpx;
+}
+
+.switch {
+  position: relative;
+  width: 120rpx;
+  height: 68rpx;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 68rpx;
+
+  &.active {
+    background-color: #4169e1;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 52rpx;
+    width: 52rpx;
+    left: 8rpx;
+    bottom: 8rpx;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  &.active::before {
+    transform: translateX(52rpx);
+  }
+}
+
+.button {
+  background-color: #4169e1;
+  color: white;
+  border: none;
+  border-radius: 16rpx;
+  padding: 24rpx 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.mode-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30rpx;
+}
+
+.mode-option {
+  background-color: #f5f5f5;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  text-align: center;
+  cursor: pointer;
+
+  &.active {
+    background-color: #e6f2ff;
+    color: #4169e1;
+    font-weight: bold;
+  }
+}
+
+.mode-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+  display: block;
+}

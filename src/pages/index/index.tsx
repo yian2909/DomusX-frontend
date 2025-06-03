@@ -20,7 +20,9 @@ const Index = () => {
 
       <View className="section-title">
         <Text>我的设备</Text>
-        <Text className="section-link">查看全部</Text>
+        <Navigator url="/pages/all-device/index" className="section-link">
+          <Text>查看全部</Text>
+        </Navigator>
       </View>
 
       <View className="device-grid">
@@ -42,23 +44,23 @@ const Index = () => {
           <Text className="device-info">温度: 24°C 湿度: 60%</Text>
         </Navigator>
 
-        <View className="device-card">
+        <Navigator url="/pages/door/index" className="device-card">
           <View className="device-header">
             <View className="device-icon">🚪</View>
             <View className="device-status">关闭</View>
           </View>
           <Text className="device-name">智能门锁</Text>
           <Text className="device-info">触摸+红外感应</Text>
-        </View>
+        </Navigator>
 
-        <View className="device-card">
+        <Navigator url="/pages/pet/index" className="device-card">
           <View className="device-header">
             <View className="device-icon">🐱</View>
             <View className="device-status">待机</View>
           </View>
           <Text className="device-name">宠物喂食器</Text>
           <Text className="device-info">下次喂食: 18:00</Text>
-        </View>
+        </Navigator>
       </View>
 
       <View className="section-title">

@@ -1,7 +1,7 @@
 export default defineAppConfig({
   pages: [
     "pages/index/index",
-    "pages/device/index",
+    "pages/notice/index",
     "pages/ai/index",
     "pages/my/index",
     "pages/login/index",
@@ -10,6 +10,8 @@ export default defineAppConfig({
     "pages/plant/index",
     "pages/door/index",
     "pages/pet/index",
+    "pages/all-device/index",
+    "pages/add-device/index",
   ],
   window: {
     backgroundTextStyle: "light",
@@ -31,7 +33,7 @@ export default defineAppConfig({
       },
       {
         text: "资讯",
-        pagePath: "pages/device/index",
+        pagePath: "pages/notice/index",
         iconPath: "static/tabs/device_default.png",
         selectedIconPath: "static/tabs/device_selected.png",
       },
