@@ -1,4 +1,3 @@
-import { View, Swiper, SwiperItem } from "@tarojs/components";
 import React from "react";
 import { View, Text, ScrollView, Navigator } from "@tarojs/components";
 import Taro from "@tarojs/taro";
