@@ -1,3 +1,3 @@
 export default definePageConfig({
-    navigationBarTitleText: "Plant",
+    navigationBarTitleText: "植物养护",
 });

@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, ScrollView, Navigator } from "@tarojs/components";
 import Taro from "@tarojs/taro";
+import { getEnvironmentData } from "@/service/plant";
+import type { EnvironmentDataVO } from "@/types/plant";
 import "./index.scss";
 
 const Index = () => {
+  const [envData, setEnvData] = useState<EnvironmentDataVO | null>(null);
+  const DEVICE_ID = "ESP8266_E0:98:06:A7:F6:A6";
+
+  useEffect(() => {
+    const fetchEnvData = async () => {
+      try {
+        const { data } = await getEnvironmentData(DEVICE_ID);
+        setEnvData(data);
+      } catch (error) {
+        console.error("获取环境数据失败:", error);
+      }
+    };
+
+    fetchEnvData();
+    // 每30秒更新一次数据
+    const timer = setInterval(fetchEnvData, 30000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <View className="container">
       <View className="weather-card">
@@ -41,7 +63,9 @@ const Index = () => {
             <View className="device-status">正常</View>
           </View>
           <Text className="device-name">植物监控</Text>
-          <Text className="device-info">温度: 24°C 湿度: 60%</Text>
+          <Text className="device-info">
+            温度: {envData?.temperature ?? "--"}°C 湿度: {envData?.humidity ?? "--"}%
+          </Text>
         </Navigator>
 
         <Navigator url="/pages/door/index" className="device-card">
