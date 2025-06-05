@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "DomusX",
   "description": "DomusX",
-  "appid": "touristappid",
+  "appid": "wx0609238749a801df",
   "setting": {
     "urlCheck": true,
     "es6": false,
