@@ -13,8 +13,8 @@ const Login = () => {
 
   // 密码登录表单
   const [passwordForm, setPasswordForm] = useState({
-    username: '',
-    password: '',
+    username: 'DRIVESAFE',
+    password: '1234567',
   })
   //倒计时
   const [count, setCount] = useState(60)
@@ -230,13 +230,13 @@ const Login = () => {
             <Text>其他登录方式</Text>
           </View>
           <View className="options">
-            <Text className="icon icon-weixin">
+            <View className="icon icon-weixin" onClick={() => {}}>
               <Text className="iconfont icon-weixin-fill" />
-              微信一键登录
-            </Text>
-            <View onClick={() => setIsCodeLogin(!isCodeLogin)} className="icon">
-              <Text className="iconfont icon-password" />
-              <View>{isCodeLogin ? '用户名密码登录' : '验证码登录'}</View>
+              <Text>微信一键登录</Text>
+            </View>
+            <View className="icon" onClick={() => setIsCodeLogin(!isCodeLogin)}>
+              <Text className="iconfont icon-user" />
+              <Text>{isCodeLogin ? '用户名密码登录' : '验证码登录'}</Text>
             </View>
           </View>
         </View>

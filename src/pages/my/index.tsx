@@ -34,8 +34,8 @@ export default function My() {
   };
 
   const menuItems = [
-    { icon: "📱", text: "管理设备", url: "/pages/device/index" },
-    { icon: "🔮", text: "智能控制", url: "/pages/ai/index" },
+    { icon: "📱", text: "管理设备", url: "/pages/all-device/index" },
+    { icon: "🔮", text: "智能助手", url: "/pages/ai/index" },
     { icon: "⚙️", text: "设置", url: "/pages/settings/index" },
   ];
 
