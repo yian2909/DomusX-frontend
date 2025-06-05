@@ -12,6 +12,7 @@ export default defineAppConfig({
     "pages/pet/index",
     "pages/all-device/index",
     "pages/add-device/index",
+    "pages/settings/index",
   ],
   window: {
     backgroundTextStyle: "light",

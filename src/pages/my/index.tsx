@@ -34,10 +34,22 @@ export default function My() {
   };
 
   const menuItems = [
-    { icon: "📱", text: "管理设备", url: "/pages/all-device/index" },
-    { icon: "🔮", text: "智能助手", url: "/pages/ai/index" },
-    { icon: "⚙️", text: "设置", url: "/pages/settings/index" },
+    { icon: "📱", text: "管理设备", url: "/pages/all-device/index", isTab: false },
+    { icon: "🔮", text: "智能助手", url: "/pages/ai/index", isTab: true },
+    { icon: "⚙️", text: "设置", url: "/pages/settings/index", isTab: false },
   ];
+
+  const handleMenuClick = (item: typeof menuItems[0]) => {
+    if (item.isTab) {
+      Taro.switchTab({
+        url: item.url
+      });
+    } else {
+      Taro.navigateTo({
+        url: item.url
+      });
+    }
+  };
 
   return (
     <View className="container">
@@ -63,11 +75,11 @@ export default function My() {
 
       <View className="menu-list">
         {menuItems.map((item, index) => (
-          <Navigator key={index} url={item.url} className="menu-item">
+          <View key={index} className="menu-item" onClick={() => handleMenuClick(item)}>
             <Text className="menu-icon">{item.icon}</Text>
             <Text className="menu-text">{item.text}</Text>
             <Text className="menu-arrow">›</Text>
-          </Navigator>
+          </View>
         ))}
         {userInfo.id > 0 && (
           <View className="menu-item" onClick={handleLogout}>
