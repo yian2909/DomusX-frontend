@@ -55,22 +55,22 @@ const Light = () => {
   };
 
   const handleSetPower = async () => {
-    const flag = power ? 1 : 0;
-    let success = false;
-
-    while (!success) {
-      try {
-        await setSwitch(device.deviceId, flag);
-        success = true;
-      } catch (error) {
-        console.error("Attempt to set power failed:", error);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-      }
+    const newPower = !power;
+    setPower(newPower);
+    // console.log("power:", newPower);
+    const flag = newPower ? 1 : 0;
+    try {
+      await setSwitch(device.deviceId, flag);
+    } catch (error) {
+      console.error("Attempt to set power failed:", error);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   };
 
   const handleSetAuto = async () => {
-    const flag = autoMode ? 1 : 0;
+    const newAuto = !autoMode;
+    setAutoMode(newAuto);
+    const flag = newAuto ? 1 : 0;
     try {
       await setAuto(device.deviceId, flag);
     } catch (error) {
@@ -79,7 +79,9 @@ const Light = () => {
   };
 
   const handleSetVoiceSensor = async () => {
-    const flag = voiceControl ? 1 : 0;
+    const newVoice = !voiceControl;
+    setVoiceControl(!voiceControl);
+    const flag = newVoice ? 1 : 0;
     try {
       await setSoundSensor(device.deviceId, flag);
     } catch (error) {
@@ -88,7 +90,9 @@ const Light = () => {
   };
 
   const handleSetLightSensor = async () => {
-    const flag = lightSensor ? 1 : 0;
+    const newLight = !lightSensor;
+    setLightSensor(!lightSensor);
+    const flag = newLight ? 1 : 0;
     try {
       await setLightCmd(device.deviceId, flag);
     } catch (error) {
@@ -96,23 +100,17 @@ const Light = () => {
     }
   };
 
-  const handleSetColor = async () => {
+  const handleSetColor = async (colorId) => {
     try {
-      await setColor(device.deviceId, selectedColor);
+      await setColor(device.deviceId, colorId);
     } catch (error) {
-      console.error("Second attempt to set color failed:", error);
+      console.error("Attempt to set color failed:", error);
     }
-    // let success = false;
+  };
 
-    // while (!success) {
-    //   try {
-    //     await setColor(device.deviceId, selectedColor);
-    //     success = true;
-    //   } catch (error) {
-    //     // console.error("Attempt to set power failed:", error);
-    //     await new Promise((resolve) => setTimeout(resolve, 2000));
-    //   }
-    // }
+  const handleColorOptionClick = (color) => {
+    setSelectedColor(color.id);
+    handleSetColor(color.id);
   };
 
   const handleBrightnessChange = async (value) => {
@@ -121,6 +119,7 @@ const Light = () => {
   };
 
   useEffect(() => {
+    // console.log("power:", power);
     // getDeviceData(1);
   }, []);
 
@@ -143,7 +142,6 @@ const Light = () => {
             <View
               className={`slider ${power ? "active" : ""}`}
               onClick={() => {
-                setPower(!power);
                 handleSetPower();
               }}
             />
@@ -176,7 +174,6 @@ const Light = () => {
             <View
               className={`slider ${autoMode ? "active" : ""}`}
               onClick={() => {
-                setAutoMode(!autoMode);
                 handleSetAuto();
               }}
             />
@@ -189,7 +186,6 @@ const Light = () => {
             <View
               className={`slider ${voiceControl ? "active" : ""}`}
               onClick={() => {
-                setVoiceControl(!voiceControl);
                 handleSetVoiceSensor();
               }}
             />
@@ -202,7 +198,6 @@ const Light = () => {
             <View
               className={`slider ${lightSensor ? "active" : ""}`}
               onClick={() => {
-                setLightSensor(!lightSensor);
                 handleSetLightSensor();
               }}
             />
@@ -218,10 +213,7 @@ const Light = () => {
               key={color.value}
               className={`color-option ${selectedColor === color.id ? "active" : ""}`}
               style={{ backgroundColor: color.value }}
-              onClick={() => {
-                setSelectedColor(color.id);
-                handleSetColor();
-              }}
+              onClick={() => handleColorOptionClick(color)}
             />
           ))}
         </View>
