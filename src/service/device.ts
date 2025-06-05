@@ -25,18 +25,6 @@ export const addDevice = (data: DeviceDTO) => {
   });
 };
 
-//发送指令（灯专用）
-export const commandLight = (
-  deviceId: string,
-  command: string,
-  value: number,
-) => {
-  return http<null>({
-    method: "POST",
-    url: `/iot/api/device/control?deviceId=${deviceId}&command=${command}&value=${value}`,
-  });
-};
-
 //发送指令
 export const command = (deviceId: string, command: string) => {
   return http<null>({
