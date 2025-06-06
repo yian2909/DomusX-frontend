@@ -12,3 +12,12 @@ type DeviceDTO = {
   type: number;
   status: number;
 };
+
+type DeviceVO = {
+  id: number;
+  deviceId: string;
+  name: string;
+  type: number;
+  status: boolean;
+  createTime: string; 
+};

@@ -1,73 +1,119 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Navigator } from "@tarojs/components";
+import { getAll, deleteDevice } from "@/service/device";
+import { useAppSelector } from "@/store";
 import Taro from "@tarojs/taro";
 import { AtIcon } from "taro-ui";
 import "./index.scss";
 
 const AllDevice = () => {
-  const devices = [
-    {
-      id: 1,
-      name: "智能灯光",
-      status: "已连接",
-      icon: "star",
-      path: "/pages/light/index"
-    },
-    {
-      id: 2,
-      name: "植物监控",
-      status: "已连接",
-      icon: "shopping-bag",
-      path: "/pages/plant/index"
-    },
-    {
-      id: 3,
-      name: "智能门锁",
-      status: "已连接",
-      icon: "lock",
-      path: "/pages/door/index"
-    },
-    {
-      id: 4,
-      name: "宠物喂食器",
-      status: "已连接",
-      icon: "heart",
-      path: "/pages/pet/index"
+  const [devices, setDevices] = useState<DeviceVO[]>([]);
+  const userInfo = useAppSelector((state) => state.user.userInfo);
+  const getDeviceList = async () => {
+    const res = await getAll(userInfo.id);
+    if (res.data) {
+      setDevices(res.data);
     }
-  ];
+  };
+  // const devices = [
+  //   {
+  //     id: 1,
+  //     name: "智能灯光",
+  //     status: "已连接",
+  //     icon: "star",
+  //     path: "/pages/light/index"
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "植物监控",
+  //     status: "已连接",
+  //     icon: "shopping-bag",
+  //     path: "/pages/plant/index"
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "智能门锁",
+  //     status: "已连接",
+  //     icon: "lock",
+  //     path: "/pages/door/index"
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "宠物喂食器",
+  //     status: "已连接",
+  //     icon: "heart",
+  //     path: "/pages/pet/index"
+  //   }
+  // ];
 
   const handleAddDevice = () => {
     Taro.navigateTo({
-      url: '/pages/add-device/index'
+      url: "/pages/add-device/index",
     });
   };
 
   const handleManageDevice = (device) => {
-    Taro.navigateTo({
-      url: device.path
-    });
+    // Taro.navigateTo({
+    //   url: device.path,
+    // });
+    if (device.type === 0) {
+      Taro.navigateTo({
+        url: "/pages/light/index",
+      });
+    } else if (device.type === 1) {
+      Taro.navigateTo({
+        url: "/pages/door/index",
+      });
+    } else if (device.type === 2) {
+      Taro.navigateTo({
+        url: "/pages/plant/index",
+      });
+    } else if (device.type === 3) {
+      Taro.navigateTo({
+        url: "/pages/pet/index",
+      });
+    }
   };
 
-  const handleDeleteDevice = (device) => {
-    Taro.showModal({
-      title: '确认删除',
-      content: `确定要删除${device.name}吗？`,
-      success: (res) => {
-        if (res.confirm) {
-          Taro.showToast({
-            title: '删除成功',
-            icon: 'success',
-            duration: 2000
-          });
-        }
-      }
-    });
+  const handleDeleteDevice = async (device) => {
+    try {
+      Taro.showModal({
+        title: "确认删除",
+        content: `确定要删除${device.name}吗？`,
+        showCancel: true,
+        success: async (res) => {
+          if (res.confirm) {
+            await deleteDevice(userInfo.id, device.id);
+            Taro.showToast({
+              title: "删除成功",
+              icon: "success",
+              duration: 2000,
+            });
+            getDeviceList();
+          } else if (res.cancel) {
+            Taro.showToast({
+              title: "已取消删除",
+              icon: "none",
+              duration: 2000,
+            });
+          }
+        },
+      });
+    } catch (error) {
+      console.error("设备删除失败:", error);
+    }
   };
+
+  useEffect(() => {
+    getDeviceList();
+  }, []);
+
+  Taro.useDidShow(() => {
+    getDeviceList();
+  });
 
   return (
     <View className="container">
-
-
       <View className="content">
         <View className="add-device">
           <View className="add-btn" onClick={handleAddDevice}>
@@ -79,10 +125,11 @@ const AllDevice = () => {
         <Text className="section-title">我的设备</Text>
 
         <View className="device-list">
-          {devices.map(device => (
+          {devices.map((device) => (
             <View key={device.id} className="device-item">
               <View className="device-icon">
-                <AtIcon value={device.icon} size="30" color="#4a90e2" />
+                {/* <AtIcon value={device.icon} size="30" color="#4a90e2" />"star" */}
+                <AtIcon value="star" size="30" color="#4a90e2" />
               </View>
               <View className="device-info">
                 <Text className="device-name">{device.name}</Text>
